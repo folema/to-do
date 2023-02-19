@@ -42,13 +42,12 @@ const addTodo = ()=>{
 
     if ( title.value ==="" || due.value === "")alert("Please enter a title and a due-date")
     else{   
-            let todo = { title: title.value, due: due.value, description: description.value, important: important.checked,
-            work: work.checked, family: family.checked, personal: personal.checked, notes: notes.value, checklist: checklist}
-            let storageId = Date.now().toString()
-            let test = []
-            checklist.childNodes.forEach(childNodes=>test.push(childNodes.textContent))
-            console.log(test)
-            //localStorage.setItem(storageId, JSON.stringify(todo))
+        let listItemsArr = []
+        checklist.childNodes.forEach(childNodes=>listItemsArr.push(childNodes.textContent))
+        listItemsArr.shift()    
+        let todo = { title: title.value, due: due.value, description: description.value, important: important.checked,
+            work: work.checked, family: family.checked, personal: personal.checked, notes: notes.value, checklist: listItemsArr}
+        localStorage.setItem("ToDo", JSON.stringify(todo))
     }
 }
 
