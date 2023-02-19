@@ -1,0 +1,182 @@
+.container{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+     grid-template-areas: 
+    "sidebar page";
+
+}
+.sidebar{
+    grid-area: sidebar;
+    background-color: rgb(229, 229, 229);
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: start;
+}
+.page{
+    grid-area: page;
+    padding: 2rem;
+}
+.new-to-do{
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    border-bottom: 1px solid gray;
+}
+.new-to-do-button{
+    border: none;
+    border-radius: 25px;
+    height: 2rem;
+    width: 2rem;
+    align-self: center;
+    background-color: rgb(38, 141, 12);
+    color: bisque;
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+.to-do{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    max-width: 40rem;
+    background-color: rgb(245, 245, 238);
+    padding: .5rem;
+}
+.due-date{
+    color: red;
+    font-weight: bold;
+}
+.title{
+    font-size: 1.5rem;
+}
+.description{
+    font-size: 1.2rem;
+    border-bottom: 1px solid gray;
+}
+.description-text{
+    font-size: 1rem;
+}
+.importancy{
+    margin-bottom: .5rem;
+    display: flex;
+    gap: .2rem;
+    align-items: center;
+}
+.importancy-button{
+    border: none;
+    border-radius: 25px;
+    width: fit-content;
+    padding: .3rem;
+    color: bisque;
+    background-color: red;
+    font-size: .8rem;
+    
+}
+.to-do-type{
+    margin-top: .3rem;
+    display: flex;
+    gap: .5rem;
+}
+.to-do-type>*{
+    border: 1px solid gray;
+    font-size: .8rem;
+    border-radius: 8px;
+    padding: .1rem;
+    background-color: rgb(162, 202, 189);
+}
+.notes{
+    margin-top: .2rem;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+.notes-text{
+    margin-top: .3rem;
+    line-height: 1.5rem;
+}
+
+.checklist{
+    margin-top: .3rem;
+    border-bottom: 1px solid gray;
+}
+.checklist-item{
+    margin-top: .3rem;
+    display: flex;
+    align-items: start;
+    gap: .3rem;
+}
+.checkmark{
+    border: 1px solid gray;
+    width: .8rem;
+    height: .8rem;
+    border-radius: 5px;
+}
+.completed{
+    margin-top: .5rem;
+}
+.completed-button{
+    background-color: green;
+    border: none;
+    border-radius: 8px;
+    padding: .3rem;
+    color: bisque;
+}
+li{
+    list-style: none;
+}
+.new-to-do-form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "input-due input-title"
+    "input-description input-description"
+    "input-urgency input-category"
+    "input-notes input-notes"
+    "input-checklist input-checklist-render"
+    "submit-form ...";
+    gap: 1rem;
+}
+.new-to-do-form>*{
+    display: flex;
+    gap: 1rem;
+    align-items: center;    
+}
+.input-due{
+    margin-top: .5rem;
+    grid-area: input-due;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.input-title{
+    grid-area: input-title;
+}
+.input-description{
+    grid-area: input-description;
+}
+.input-urgency{
+    grid-area: input-urgency;
+}
+.input-category{
+    grid-area: input-category;
+}
+.input-notes{
+    grid-area: input-notes;
+}
+.input-checklist{
+    grid-area: input-checklist;
+}
+.input-checklist-render{
+    grid-area: input-checklist-render;
+}
+.submit-form{
+    grid-area: submit-form;
+}
+.notes-input{
+    height: 20rem;
+    width: 25rem;
+    
+}
