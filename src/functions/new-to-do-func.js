@@ -1,3 +1,5 @@
+import { startScreen } from "../domEvents"
+
 const newListItem = ()=>{
     const input_checklist = document.querySelector(".input-checklist")
     const button = document.querySelector(".new-checklist-item")
@@ -43,11 +45,13 @@ const addTodo = ()=>{
     if ( title.value ==="" || due.value === "")alert("Please enter a title and a due-date")
     else{   
         let listItemsArr = []
+        let storageTitle = Date.now()
         checklist.childNodes.forEach(childNodes=>listItemsArr.push(childNodes.textContent))
         listItemsArr.shift()    
         let todo = { title: title.value, due: due.value, description: description.value, important: important.checked,
             work: work.checked, family: family.checked, personal: personal.checked, notes: notes.value, checklist: listItemsArr}
-        localStorage.setItem("ToDo", JSON.stringify(todo))
+        localStorage.setItem(storageTitle, JSON.stringify(todo))
+        startScreen()
     }
 }
 

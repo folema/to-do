@@ -1,3 +1,4 @@
+import { startScreen } from "./domEvents"
 import {newListItem, addTodo} from "./functions/new-to-do-func"
 
 const newToDo = ()=>{
@@ -96,6 +97,11 @@ const newToDo = ()=>{
     form_submit.textContent = "Add To-Do"
     form_submit.addEventListener("click", addTodo)
     submit_form.appendChild(form_submit)
+    //cancel
+    const cancel = document.createElement("button")
+    cancel.textContent = "Cancel"
+    cancel.addEventListener("click", startScreen)
+    submit_form.appendChild(cancel)
     new_to_do_form.appendChild(submit_form)
 
     return new_to_do_form
