@@ -1,3 +1,4 @@
+import { parse } from "date-fns"
 import { startScreen } from "../domEvents"
 
 const newListItem = ()=>{
@@ -45,15 +46,23 @@ const addTodo = ()=>{
     if ( title.value ==="" || due.value === "")alert("Please enter a title and a due-date")
     else{   
         let listItemsArr = []
-        let storageTitle = Date.now()
+        let storageTitle = title.value
         checklist.childNodes.forEach(childNodes=>listItemsArr.push(childNodes.textContent))
-        listItemsArr.shift()    
-        let todo = { title: title.value, due: due.value, description: description.value, important: important.checked,
-            work: work.checked, family: family.checked, personal: personal.checked, notes: notes.value, checklist: listItemsArr}
+        listItemsArr.shift()
+        let checkArr = []
+        let dueDate = parse(due.value, "yyyy-MM-dd", new Date())
+        let i = 0
+        while (i < listItemsArr.length){
+            checkArr.push({title:listItemsArr[i], completed: false})
+            i++
+        }    
+        let todo = { title: title.value, due: dueDate, description: description.value, important: important.checked,
+            work: work.checked, family: family.checked, personal: personal.checked, notes: notes.value, checklist: checkArr}
         localStorage.setItem(storageTitle, JSON.stringify(todo))
         startScreen()
     }
 }
+
 
 
 export {newListItem, 
